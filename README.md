@@ -2,7 +2,11 @@
 
 This is a simple Julia program that can be used to experiment with fragment shaders, heavily inspired by [Íñigo Quílez](https://iquilezles.org/) and [Pol Jeremias](https://www.poljeremias.com/)'s [Shadertoy](https://shadertoy.com).
 
-It has [GLSLTranspiler.jl](https://github.com/szgerii/GLSLTranspiler.jl) integrated, as the whole project was created to enable quick testing of shaders generated from Julia code.
+It has [GLSLTranspiler.jl](https://github.com/szgerii/GLSLTranspiler.jl) integration, since the whole project was created to enable quick testing of shaders generated from Julia code.
+
+<img width="1920" height="1032" alt="Screenshot of the app displaying a demonstration of a circle's SDF." src="https://github.com/user-attachments/assets/3ea98987-ae51-4104-bf57-84b0e77a55a6" />
+
+The shader in the screenshot comes (once again) from Íñigo Quílez and is available [here](https://www.shadertoy.com/view/3ltSW2). It has been transpiled to a Julia "shader" by hand and programatically transpiled back to GLSL using the transpiler mentioned above. The shader itself is a demonstration of a circle's signed distance function.
 
 ## Installation
 
