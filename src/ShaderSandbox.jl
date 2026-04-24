@@ -209,7 +209,7 @@ function run_app()
 
         checkErrors("during draw")
 
-        CImGui.SetNextWindowSizeConstraints(CImGui.ImVec2(width, div(height, 4)), CImGui.ImVec2(width, height))
+        CImGui.SetNextWindowSizeConstraints(CImGui.ImVec2(width, div(height, 6)), CImGui.ImVec2(width, height))
         CImGui.SetNextWindowPos((0, 0))
 
         CImGui.Begin("Menu", C_NULL)

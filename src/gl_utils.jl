@@ -49,8 +49,27 @@ function compileShader(source, type)::Union{GLuint,Nothing}
 end
 
 function updateShaders(prev_prog, vs_path::Vector{Cchar}, fs_path::Vector{Cchar})
-    vsh = read(unsafe_string(pointer(vs_path)), String)
-    fsh = read(unsafe_string(pointer(fs_path)), String)
+    function try_read(path::String)
+        try
+            return read(path, String)
+        catch
+            return nothing
+        end
+    end
+
+    vs_path_str = unsafe_string(pointer(vs_path))
+    vsh = try_read(vs_path_str)
+    if isnothing(vsh)
+        println("couldn't open or read file at '$vs_path_str'")
+        return nothing
+    end
+
+    fs_path_str = unsafe_string(pointer(fs_path))
+    fsh = try_read(fs_path_str)
+    if isnothing(fsh)
+        println("couldn't open or read file at '$fs_path_str'")
+        return nothing
+    end
 
     compiledVSH = compileShader(vsh, GL_VERTEX_SHADER)
     compiledFSH = compileShader(fsh, GL_FRAGMENT_SHADER)
