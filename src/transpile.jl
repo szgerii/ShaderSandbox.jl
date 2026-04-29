@@ -1,10 +1,8 @@
-const run_benchmarks = "--transpiler-benchmarks" in ARGS
-
 function handle_transpile(jl_code::String)::Union{String,Nothing}
     frag_code = missing
 
     try
-        expr = Meta.parse(jl_code)
+        expr = Meta.parse("begin $jl_code end")
 
         isnothing(expr) && return nothing
 
@@ -14,7 +12,10 @@ function handle_transpile(jl_code::String)::Union{String,Nothing}
             return nothing
         end
 
-        frag_code = transpile(expr, run_benchmarks, true)
+        run_benchmarks = "--transpiler-benchmarks" in ARGS
+        frag_code = transpile(expr; run_benchmarks, throw_error=true)
+
+        isempty(frag_code) && return nothing
 
         return frag_code
     catch err

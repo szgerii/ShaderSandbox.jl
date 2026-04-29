@@ -14,8 +14,8 @@ stc_jll = "8dead81b-3450-5e2f-948b-0f2a405f2b3d"
 
 [sources]
 JuliaGLM = {rev = "glsl-functions", url = "https://github.com/Csabix/JuliaGLM"}
-stc_jll = {url = "https://github.com/ShaderTranspiler/stc_jll.jl"}
 ShaderTranspiler = {url = "https://github.com/ShaderTranspiler/ShaderTranspiler.jl"}
+stc_jll = {url = "https://github.com/ShaderTranspiler/stc_jll.jl"}
 
 [compat]
 CImGui = "7.1.0"
@@ -23,7 +23,7 @@ Dates = "1.11.0"
 GLFW = "3.4.6"
 JuliaGLM = "0.0.1"
 ModernGL = "1.1.8"
-ShaderTranspiler = "0.5.0"
-stc_jll = "0.5.0"
+ShaderTranspiler = "0.8.0"
+stc_jll = "0.8.0"
 
 [apps.shader-sandbox]
