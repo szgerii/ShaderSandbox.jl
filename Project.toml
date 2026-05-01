@@ -23,7 +23,7 @@ Dates = "1.11.0"
 GLFW = "3.4.6"
 JuliaGLM = "0.0.1"
 ModernGL = "1.1.8"
-ShaderTranspiler = "0.8.1"
-stc_jll = "0.8.1"
+ShaderTranspiler = "1.0.0"
+stc_jll = "1.0.0"
 
 [apps.shader-sandbox]
