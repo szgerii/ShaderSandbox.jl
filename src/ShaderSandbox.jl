@@ -48,6 +48,10 @@ function run_app()
 
     window = init_window(width, height)
 
+    if "--info" in ARGS
+        print_info()
+    end
+
     prog = updateShaders(vs_path_buf, fs_path_buf)
 
     if isnothing(prog)

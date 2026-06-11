@@ -93,3 +93,19 @@ function updateShaders(prev_prog, vs_path::Vector{Cchar}, fs_path::Vector{Cchar}
 end
 
 updateShaders(vs_path, fs_path) = updateShaders(-1, vs_path, fs_path)
+
+function print_info()
+    gl_ver   = unsafe_string(glGetString(GL_VERSION))
+    glsl_ver = unsafe_string(glGetString(GL_SHADING_LANGUAGE_VERSION))
+    vendor   = unsafe_string(glGetString(GL_VENDOR))
+    renderer = unsafe_string(glGetString(GL_RENDERER))
+
+    transpiler_pkg_ver = pkgversion(ShaderTranspiler)
+    transpiler_abi_ver = ShaderTranspiler.abi_version()
+
+    println("OpenGL: $gl_ver")
+    println("GLSL: $glsl_ver")
+    println("Vendor: $vendor")
+    println("Renderer: $renderer")
+    println("Transpiler Pkg: $transpiler_pkg_ver (ABI: $transpiler_abi_ver)")
+end
